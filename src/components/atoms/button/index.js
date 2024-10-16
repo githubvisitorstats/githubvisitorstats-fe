@@ -1,9 +1,7 @@
-import { Button } from "@mui/material";
+import { Button as MUIButton } from "@mui/material";
 
-const ButtonComponent = () => {
-  return (
-    <Button></Button>
-  )
-}
+const Button = ({ label, ...props }) => {
+  return <MUIButton {...props}>{label}</MUIButton>;
+};
 
-export default ButtonComponent;
+export default Button;

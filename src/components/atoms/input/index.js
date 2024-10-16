@@ -1,7 +1,7 @@
-import { Input } from "@mui/material";
+import { TextField } from "@mui/material";
 
-const InputComponent = () => {
-  return <Input />;
+const Input = ({ label, ...props }) => {
+  return <TextField label={label} {...props} />;
 };
 
-export default InputComponent;
+export default Input;
