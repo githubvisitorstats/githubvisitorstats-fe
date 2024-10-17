@@ -1,0 +1,32 @@
+name: Export and Deploy to Github Pages Repo
+
+on:
+  push:
+    branches:
+      - main # 'main' branch'a commit atıldığında workflow çalışacak
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js project
+        run: npm run build
+
+      - name: Export Next.js project to static files
+        run: npm run export
+
+      - name: Push to githubvisitorstats.github.io repo
+        run: |
+          cd out
+          git init
+          git remote add origin https://github.com/githubvisitorstats/githubvisitorstats.github.io.git
+          git add .
+          git commit -m "Auto-export from githubvisitorstats-fe"
+          git push -f https://githubvisitorstats:${{ secrets.DESTINATION_REPO_PAT }}@github.com/githubvisitorstats/githubvisitorstats.github.io.git main
