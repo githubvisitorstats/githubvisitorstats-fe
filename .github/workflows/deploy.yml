@@ -19,9 +19,6 @@ jobs:
       - name: Build Next.js project
         run: npm run build
 
-      - name: Export Next.js project to static files
-        run: npm run export
-
       - name: Push to githubvisitorstats.github.io repo
         run: |
           cd out
