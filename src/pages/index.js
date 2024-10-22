@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import { Poppins } from "next/font/google";
-import { ThemeProvider, Typography } from "@mui/material";
+import { colors, ThemeProvider, Typography } from "@mui/material";
 import theme from "@/theme";
 
 const poppins = Poppins({
@@ -21,7 +21,7 @@ export default function Home() {
       </Head>
       <ThemeProvider theme={theme}>
         <Typography variant="h1">Github Visitor Stats</Typography>
-        <Typography variant="h2">
+        <Typography variant="h2" color="secondary">
           Easily track your GitHub profile visits and get detailed analytics.
           Monitor your visitor statistics in real-time with a simple code added
           to your profile.

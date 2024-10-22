@@ -2,6 +2,14 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#1d1b84",
+    },
+    secondary: {
+      main: "#344b80",
+    },
+  },
   typography: {
     fontFamily: '"Poppins", sans-serif',
     h1: {
