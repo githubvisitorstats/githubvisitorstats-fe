@@ -20,12 +20,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
-        <Typography variant="h1">Github Visitor Stats</Typography>
-        <Typography variant="h2" color="secondary">
-          Easily track your GitHub profile visits and get detailed analytics.
-          Monitor your visitor statistics in real-time with a simple code added
-          to your profile.
-        </Typography>
+        <Typography variant="h1">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="h2">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="h3">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="h4">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="h5">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="body1">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="body2">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="subtitle1">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="subtitle2">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="caption">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="overline">Lorem ipsum dolar sit amet.</Typography>
       </ThemeProvider>
     </>
   );
