@@ -11,91 +11,87 @@ const colors = {
 };
 
 const theme = createTheme({
+  palette: {
+    purple: {
+      dark: "#000546",
+      main: "#1d1b84",
+      light: "#4945ff",
+    },
+    blue: {
+      dark: "#344b80",
+      light: "#4a95ff",
+    },
+    grey: {
+      dark: {
+        main: "#0d1116",
+      },
+      main: {
+        main: "#3f444c",
+      },
+      light: {
+        main: "#c0c0cf",
+      },
+    },
+    black: {
+      main: "#000",
+    },
+    white: {
+      main: "#fff",
+    },
+  },
   typography: {
     fontFamily: '"Poppins", sans-serif',
-    fontWeightRegular: 400, // $normal
-    fontWeightMedium: 500, // $medium
-    fontWeightSemiBold: 600, // $semi-bold
-    fontWeightBold: 700, // $bold
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightSemiBold: 600,
+    fontWeightBold: 700,
 
     h1: {
-      fontSize: "53px", // $title-extra-large
-      fontWeight: 600, // $semi-bold (örnek)
+      fontSize: "43px",
+      fontWeight: 700,
+      "@media (max-width:960px)": {
+        fontSize: "41px",
+      },
       "@media (max-width:600px)": {
-        fontSize: "43px", // $title-extra-large-mb
+        fontSize: "33px",
       },
     },
     h2: {
-      fontSize: "43px", // $title-large
-      fontWeight: 500, // $medium (örnek)
-      "@media (max-width:960px)": {
-        fontSize: "41px", // $title-large-m
-      },
+      fontSize: "13px",
+      fontWeight: 700,
       "@media (max-width:600px)": {
-        fontSize: "33px", // $title-large-mb
+        fontSize: "13px",
       },
     },
     h3: {
-      fontSize: "33px", // $title-medium
-      fontWeight: 500,
+      fontSize: "43px",
+      fontWeight: 700,
+      "@media (max-width:960px)": {
+        fontSize: "41px",
+      },
       "@media (max-width:600px)": {
-        fontSize: "23px", // $title-medium-mb
+        fontSize: "33px",
       },
     },
     h4: {
-      fontSize: "21px", // $title-small
-      fontWeight: 400, // $normal (örnek)
+      fontSize: "21px",
+      fontWeight: 400,
       "@media (max-width:600px)": {
-        fontSize: "17px", // $title-small-mb
+        fontSize: "17px",
       },
     },
     h5: {
-      fontSize: "17px", // $title-smaller
-      fontWeight: 400,
+      fontSize: "21px",
+      fontWeight: 600,
       "@media (max-width:600px)": {
-        fontSize: "13px", // $title-smaller-mb
+        fontSize: "17px",
       },
     },
     body1: {
-      fontSize: "21px", // $text-large
+      fontSize: "17px",
       "@media (max-width:600px)": {
-        fontSize: "17px", // $text-large-mb
+        fontSize: "17px",
       },
-    },
-    body2: {
-      fontSize: "17px", // $text-medium
-      "@media (max-width:600px)": {
-        fontSize: "17px", // $text-medium-mb
-      },
-    },
-    subtitle1: {
-      fontSize: "15px", // $text-small
-      "@media (max-width:600px)": {
-        fontSize: "15px", // $text-small-mb
-      },
-    },
-    subtitle2: {
-      fontSize: "13px", // $text-smaller
-      "@media (max-width:600px)": {
-        fontSize: "13px", // $text-smaller-mb
-      },
-    },
-    caption: {
-      fontSize: "12px", // $text-extra-small
-    },
-    overline: {
-      fontSize: "9px", // $text-extra-small-card
-    },
-    button: {
-      fontSize: "13px", // $label
-      fontWeight: 500,
-      "@media (max-width:600px)": {
-        fontSize: "11px", // $label-mb
-      },
-    },
-    labelLarge: {
-      fontSize: "17px", // $label-large
-      fontWeight: 500,
     },
   },
 });

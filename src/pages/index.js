@@ -20,17 +20,31 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
-        <Typography variant="h1">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="h2">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="h3">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="h4">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="h5">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="body1">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="body2">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="subtitle1">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="subtitle2">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="caption">Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="overline">Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="h1" color={theme.palette.purple.main}>
+          h1 | Lorem ipsum dolar sit amet.
+        </Typography>
+        <Typography variant="h2">h2 | Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="h3">h3 | Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="h4">h4 | Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="h5">h5 | Lorem ipsum dolar sit amet.</Typography>
+        <Typography variant="body1">
+          body1 | Lorem ipsum dolar sit amet.
+        </Typography>
+        <Typography variant="body2">
+          body2 | Lorem ipsum dolar sit amet.
+        </Typography>
+        <Typography variant="subtitle1">
+          subtitle1 | Lorem ipsum dolar sit amet.
+        </Typography>
+        <Typography variant="subtitle2">
+          subtitle2 | Lorem ipsum dolar sit amet.
+        </Typography>
+        <Typography variant="caption">
+          caption | Lorem ipsum dolar sit amet.
+        </Typography>
+        <Typography variant="overline">
+          overline | Lorem ipsum dolar sit amet.
+        </Typography>
       </ThemeProvider>
     </>
   );
