@@ -1,14 +1,8 @@
 import Head from "next/head";
-
-import { Poppins } from "next/font/google";
-import { colors, ThemeProvider, Typography } from "@mui/material";
 import theme from "@/theme";
 
-const poppins = Poppins({
-  subsets: ["latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
+import { ThemeProvider } from "@mui/material";
+import { UnderConstruction } from "@/components/templates";
 
 export default function Home() {
   return (
@@ -20,31 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
-        <Typography variant="h1" color={theme.palette.purple.main}>
-          h1 | Lorem ipsum dolar sit amet.
-        </Typography>
-        <Typography variant="h2">h2 | Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="h3">h3 | Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="h4">h4 | Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="h5">h5 | Lorem ipsum dolar sit amet.</Typography>
-        <Typography variant="body1">
-          body1 | Lorem ipsum dolar sit amet.
-        </Typography>
-        <Typography variant="body2">
-          body2 | Lorem ipsum dolar sit amet.
-        </Typography>
-        <Typography variant="subtitle1">
-          subtitle1 | Lorem ipsum dolar sit amet.
-        </Typography>
-        <Typography variant="subtitle2">
-          subtitle2 | Lorem ipsum dolar sit amet.
-        </Typography>
-        <Typography variant="caption">
-          caption | Lorem ipsum dolar sit amet.
-        </Typography>
-        <Typography variant="overline">
-          overline | Lorem ipsum dolar sit amet.
-        </Typography>
+        <UnderConstruction />
       </ThemeProvider>
     </>
   );
