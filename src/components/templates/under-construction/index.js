@@ -31,7 +31,7 @@ const UnderConstruction = () => {
       ></Stack>
       <Stack textAlign={"center"} zIndex={1} gap={"15px"} alignItems={"center"}>
         <Stack marginBottom={"50px"}>
-          <Image src={"assets/img/logo.svg"} width={50} height={50} />
+          <Image src={"assets/img/logo.svg"} width={50} height={50} alt="Github Visitor Stats Logo" />
         </Stack>
         <Typography
           variant="h2"
