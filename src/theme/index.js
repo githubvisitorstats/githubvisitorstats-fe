@@ -60,8 +60,10 @@ const theme = createTheme({
     h4: {
       fontSize: "21px",
       fontWeight: 300,
+      lineHeight: "31px",
       "@media (max-width:600px)": {
         fontSize: "17px",
+        lineHeight: "27px",
       },
     },
     h5: {
