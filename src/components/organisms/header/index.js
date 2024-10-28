@@ -1,5 +1,22 @@
+import { NavigationItem } from "@/components/atoms";
+import { Stack } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
+
 const Header = () => {
-  return <header></header>;
+  return (
+    <header>
+      <Image
+        src={"assets/img/logo.svg"}
+        width={50}
+        height={50}
+        alt="Github Visitor Stats Logo"
+      />
+      <Stack>
+        <NavigationItem href="/" title="How It Works" />
+      </Stack>
+    </header>
+  );
 };
 
 export default Header;

@@ -1,9 +1,7 @@
 import Head from "next/head";
-import theme from "@/theme";
 
-import { ThemeProvider } from "@mui/material";
-import { UnderConstruction } from "@/components/templates";
-import Script from "next/script";
+import { Container } from "@mui/material";
+import { Header } from "@/components/organisms";
 
 export default function Home() {
   return (
@@ -19,7 +17,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <UnderConstruction />
+      {/* <UnderConstruction /> */}
+      <Container>
+        <Header />
+      </Container>
     </>
   );
 }
