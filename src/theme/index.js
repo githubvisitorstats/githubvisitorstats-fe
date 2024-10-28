@@ -4,6 +4,9 @@ const theme = createTheme({
   components: {
     MuiContainer: {
       styleOverrides: {
+        root: {
+          position: "relative",
+        },
         maxWidthLg: {
           maxWidth: "1400px",
           "@media (min-width: 1200px)": {
@@ -94,9 +97,6 @@ const theme = createTheme({
     body2: {
       fontSize: "15px",
       fontWeight: 500,
-      "& > a": {
-        textDecoration: "none",
-      },
       "@media (max-width:600px)": {
         fontSize: "13px",
       },

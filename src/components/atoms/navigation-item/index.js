@@ -1,9 +1,9 @@
 import theme from "@/theme";
 import { Link, Typography } from "@mui/material";
 
-const NavigationItem = ({ title, ...props }) => {
+const NavigationItem = ({ title }) => {
   return (
-    <Link variant="body2">
+    <Link href="/about" variant="body2" underline="none">
       {title}
     </Link>
   );
