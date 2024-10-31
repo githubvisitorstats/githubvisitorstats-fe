@@ -1,7 +1,9 @@
 import Head from "next/head";
 
-import { Container } from "@mui/material";
+import { Container, Stack, Typography } from "@mui/material";
 import { Header } from "@/components/organisms";
+import { SplashBackground } from "@/components/atoms";
+import theme from "@/theme";
 
 export default function Home() {
   return (
@@ -18,9 +20,32 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <UnderConstruction /> */}
-      <Container>
-        <Header />
-      </Container>
+      <SplashBackground>
+        <Container>
+          <Header />
+          <Stack
+            flexDirection={"column"}
+            padding={"300px 0px"}
+            maxWidth={"700px"}
+            justifyContent={"center"}
+            margin={"auto"}
+            textAlign={"center"}
+          >
+            <Typography
+              variant="h1"
+              color={theme.palette.white.main}
+              marginBottom={"5px"}
+            >
+              Github Visitor Stats
+            </Typography>
+            <Typography variant="h4" color={theme.palette.grey.light}>
+              Easily track your GitHub profile visits and get detailed
+              analytics. Monitor your visitor statistics in real-time with a
+              simple code added to your profile.
+            </Typography>
+          </Stack>
+        </Container>
+      </SplashBackground>
     </>
   );
 }
