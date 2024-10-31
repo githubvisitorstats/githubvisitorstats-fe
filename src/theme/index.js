@@ -96,7 +96,7 @@ const theme = createTheme({
     },
     body2: {
       fontSize: "15px",
-      fontWeight: 500,
+      fontWeight: 400,
       "@media (max-width:600px)": {
         fontSize: "13px",
       },
