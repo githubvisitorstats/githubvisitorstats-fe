@@ -1,7 +1,52 @@
 import { createTheme } from "@mui/material/styles";
 
+const palette = {
+  purple: {
+    dark: "#000546",
+    main: "#1d1b84",
+    light: "#4945ff",
+  },
+  blue: {
+    dark: "#344b80",
+    light: "#4a95ff",
+  },
+  grey: {
+    dark: "#0d1116",
+    main: "#3f444c",
+    light: "#c0c0cf",
+  },
+  black: {
+    main: "#000",
+  },
+  white: {
+    main: "#fff",
+  },
+};
+
 const theme = createTheme({
   components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& input": {
+            backgroundColor: palette.white.main,
+            borderRadius: "6px",
+            border: "0px",
+            fontSize: "15px",
+            padding: "15px 30px",
+            color: palette.grey.main,
+            boxSizing: "border-box",
+            height: "55px",
+          },
+          "& input::placeholder": {
+            color: palette.grey.light,
+          },
+          "& fieldset": {
+            display: "none",
+          },
+        },
+      },
+    },
     MuiContainer: {
       styleOverrides: {
         root: {
@@ -16,28 +61,7 @@ const theme = createTheme({
       },
     },
   },
-  palette: {
-    purple: {
-      dark: "#000546",
-      main: "#1d1b84",
-      light: "#4945ff",
-    },
-    blue: {
-      dark: "#344b80",
-      light: "#4a95ff",
-    },
-    grey: {
-      dark: "#0d1116",
-      main: "#3f444c",
-      light: "#c0c0cf",
-    },
-    black: {
-      main: "#000",
-    },
-    white: {
-      main: "#fff",
-    },
-  },
+  palette: palette,
   typography: {
     fontFamily: '"Poppins", sans-serif',
     fontWeightRegular: 400,

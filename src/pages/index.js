@@ -4,6 +4,7 @@ import { Container, Stack, Typography } from "@mui/material";
 import { Header } from "@/components/organisms";
 import { SplashBackground } from "@/components/atoms";
 import theme from "@/theme";
+import Input from "@/components/atoms/input";
 
 export default function Home() {
   return (
@@ -43,6 +44,7 @@ export default function Home() {
               analytics. Monitor your visitor statistics in real-time with a
               simple code added to your profile.
             </Typography>
+            <Input placeholder="Github Username" />
           </Stack>
         </Container>
       </SplashBackground>
