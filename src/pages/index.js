@@ -5,6 +5,7 @@ import { Header } from "@/components/organisms";
 import { SplashBackground } from "@/components/atoms";
 import theme from "@/theme";
 import Input from "@/components/atoms/input";
+import Button from "@/components/atoms/button";
 
 export default function Home() {
   return (
@@ -45,6 +46,7 @@ export default function Home() {
               simple code added to your profile.
             </Typography>
             <Input placeholder="Github Username" />
+            <Button variant="primary">Get Code</Button>
           </Stack>
         </Container>
       </SplashBackground>

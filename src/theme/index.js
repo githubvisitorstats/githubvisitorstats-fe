@@ -25,6 +25,31 @@ const palette = {
 
 const theme = createTheme({
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          variants: [
+            {
+              props: { variant: "primary" },
+              style: {
+                backgroundColor: palette.purple.light,
+                fontSize: "15px",
+                textTransform: "none",
+                fontWeight: 400,
+                color: palette.white.main,
+                padding: "15px 40px",
+                width: "fit-content",
+                borderRadius: "6px",
+                maxHeight: "55px",
+              },
+            },
+          ],
+          "& .MuiTouchRipple-root": {
+            display: "none",
+          },
+        },
+      },
+    },
     MuiTextField: {
       styleOverrides: {
         root: {
@@ -37,6 +62,7 @@ const theme = createTheme({
             color: palette.grey.main,
             boxSizing: "border-box",
             height: "55px",
+            width: "fit-content",
           },
           "& input::placeholder": {
             color: palette.grey.light,
