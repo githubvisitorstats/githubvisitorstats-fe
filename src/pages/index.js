@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import { Container, Stack, Typography } from "@mui/material";
 import { Header } from "@/components/organisms";
-import { SplashBackground } from "@/components/atoms";
+import { IconButton, SplashBackground } from "@/components/atoms";
 import theme from "@/theme";
 import Input from "@/components/atoms/input";
 import Button from "@/components/atoms/button";
@@ -45,8 +45,34 @@ export default function Home() {
               analytics. Monitor your visitor statistics in real-time with a
               simple code added to your profile.
             </Typography>
-            <Input placeholder="Github Username" />
-            <Button variant="primary">Get Code</Button>
+            <Stack
+              flexDirection={"row"}
+              justifyContent={"center"}
+              marginTop={"100px"}
+            >
+              <Input
+                variant="standard"
+                placeholder="Github Username"
+                style={{ width: "250px" }}
+                className="ButtonAction"
+              />
+              <Button variant="primary" className="ButtonAction">
+                Get Code
+              </Button>
+            </Stack>
+            <Stack
+              flexDirection={"row"}
+              justifyContent={"center"}
+              marginTop={"100px"}
+            >
+              <Input
+                variant="filled"
+                value="https://yasinkalkan.com/github-ana"
+                style={{ width: "250px" }}
+                className="ButtonAction"
+              />
+              <IconButton>test</IconButton>
+            </Stack>
           </Stack>
         </Container>
       </SplashBackground>

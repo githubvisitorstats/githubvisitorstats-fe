@@ -41,10 +41,34 @@ const theme = createTheme({
                 width: "fit-content",
                 borderRadius: "6px",
                 maxHeight: "55px",
+                transitionProperty: "filter",
+                transitionDuration: "0.3s",
+                ":hover": {
+                  filter: "brightness(1.1)",
+                },
               },
             },
           ],
           "& .MuiTouchRipple-root": {
+            display: "none",
+          },
+          "&.ButtonAction": {
+            borderTopLeftRadius: "0px",
+            borderBottomLeftRadius: "0px",
+          },
+          "&.Mui-disabled": {
+            backgroundColor: palette.grey.light,
+          },
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          "&:after": {
+            display: "none",
+          },
+          "&:before": {
             display: "none",
           },
         },
@@ -53,19 +77,51 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          "& input": {
-            backgroundColor: palette.white.main,
-            borderRadius: "6px",
-            border: "0px",
-            fontSize: "15px",
-            padding: "15px 30px",
-            color: palette.grey.main,
-            boxSizing: "border-box",
-            height: "55px",
-            width: "fit-content",
-          },
-          "& input::placeholder": {
-            color: palette.grey.light,
+          variants: [
+            {
+              props: {
+                variant: "standard",
+              },
+              style: {
+                "& input": {
+                  backgroundColor: palette.white.main,
+                  borderRadius: "6px",
+                  border: "0px",
+                  fontSize: "15px",
+                  padding: "15px 30px",
+                  color: palette.grey.main,
+                  boxSizing: "border-box",
+                  height: "55px",
+                },
+                "& input::placeholder": {
+                  color: palette.grey.light,
+                },
+              },
+            },
+            {
+              props: {
+                variant: "filled",
+              },
+              style: {
+                "& input": {
+                  backgroundColor: palette.purple.dark,
+                  borderRadius: "6px",
+                  border: "0px",
+                  fontSize: "15px",
+                  padding: "15px 30px",
+                  color: palette.white.main,
+                  boxSizing: "border-box",
+                  height: "55px",
+                },
+                "& input::placeholder": {
+                  color: palette.purple.light,
+                },
+              },
+            },
+          ],
+          "&.ButtonAction input": {
+            borderTopRightRadius: "0px",
+            borderBottomRightRadius: "0px",
           },
           "& fieldset": {
             display: "none",
