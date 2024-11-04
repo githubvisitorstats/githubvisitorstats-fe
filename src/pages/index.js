@@ -2,10 +2,15 @@ import Head from "next/head";
 
 import { Container, Stack, Typography } from "@mui/material";
 import { Header } from "@/components/organisms";
-import { IconButton, SplashBackground } from "@/components/atoms";
+import {
+  Button,
+  IconButton,
+  Input,
+  SplashBackground,
+} from "@/components/atoms";
 import theme from "@/theme";
-import Input from "@/components/atoms/input";
-import Button from "@/components/atoms/button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy } from "@fortawesome/free-regular-svg-icons";
 
 export default function Home() {
   return (
@@ -49,6 +54,7 @@ export default function Home() {
               flexDirection={"row"}
               justifyContent={"center"}
               marginTop={"100px"}
+              marginBottom={"30px"}
             >
               <Input
                 variant="standard"
@@ -56,22 +62,35 @@ export default function Home() {
                 style={{ width: "250px" }}
                 className="ButtonAction"
               />
-              <Button variant="primary" className="ButtonAction">
+              <Button variant="contained" className="ButtonAction">
                 Get Code
               </Button>
             </Stack>
-            <Stack
-              flexDirection={"row"}
-              justifyContent={"center"}
-              marginTop={"100px"}
-            >
-              <Input
-                variant="filled"
-                value="https://yasinkalkan.com/github-ana"
-                style={{ width: "250px" }}
-                className="ButtonAction"
-              />
-              <IconButton>test</IconButton>
+            <Stack width={"70%"} margin={"auto"}>
+              <Stack flexDirection={"row"} justifyContent={"center"}>
+                <Input
+                  variant="filled"
+                  value="![Profile Visits](https://img.shields.io/endpoint?url=https://yasinkalkan.com/github-analytics/track.php?user=yasgo)"
+                  style={{ width: "100%" }}
+                  className="ButtonAction"
+                />
+                <IconButton className="ButtonAction">
+                  <FontAwesomeIcon
+                    icon={faCopy}
+                    fontSize={"14px"}
+                    color={theme.palette.white.main}
+                  />
+                </IconButton>
+              </Stack>
+              <Typography
+                variant="overline"
+                color={theme.palette.grey.light}
+                marginTop={"10px"}
+              >
+                * Paste the tracking code you received into your GitHub
+                profile’s README file. This is essential for tracking your
+                visitor statistics.
+              </Typography>
             </Stack>
           </Stack>
         </Container>

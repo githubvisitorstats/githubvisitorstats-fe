@@ -25,12 +25,28 @@ const palette = {
 
 const theme = createTheme({
   components: {
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          width: "55px",
+          backgroundColor: palette.purple.dark,
+          borderRadius: "6px",
+          "&.ButtonAction": {
+            borderTopLeftRadius: "0px",
+            borderBottomLeftRadius: "0px",
+          },
+          ":hover": {
+            backgroundColor: palette.purple.dark,
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
           variants: [
             {
-              props: { variant: "primary" },
+              props: { variant: "contained" },
               style: {
                 backgroundColor: palette.purple.light,
                 fontSize: "15px",
@@ -95,6 +111,7 @@ const theme = createTheme({
                 },
                 "& input::placeholder": {
                   color: palette.grey.light,
+                  opacity: 1,
                 },
               },
             },
@@ -206,6 +223,11 @@ const theme = createTheme({
       "@media (max-width:600px)": {
         fontSize: "13px",
       },
+    },
+    overline: {
+      fontSize: "11px",
+      textTransform: "none",
+      lineHeight: "20px",
     },
   },
 });
