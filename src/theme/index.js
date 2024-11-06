@@ -213,6 +213,10 @@ const theme = createTheme({
     },
     body1: {
       fontSize: "17px",
+      "& a": {
+        color: palette.blue.light,
+        textDecoration: "none",
+      },
       "@media (max-width:600px)": {
         fontSize: "17px",
       },
