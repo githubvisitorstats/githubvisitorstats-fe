@@ -14,6 +14,7 @@ const Header = () => {
         alignItems: "center",
         justifyContent: "space-between",
         top: 50,
+        padding: '0px 24px'
       }}
     >
       <Image

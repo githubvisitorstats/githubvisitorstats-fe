@@ -263,6 +263,27 @@ export default function Home() {
                 </Link>
               </Stack>
             </Stack>
+            <Stack flexDirection={"row"} justifyContent={"space-between"}>
+              <Typography
+                variant="overline"
+                fontSize={"13px"}
+                lineHeight={"normal"}
+                color={theme.palette.grey.light}
+              >
+                © 2024 Yasin B. Kalkan
+              </Typography>
+              <Stack flexDirection={"row"} gap={"30px"}>
+                <Typography variant="button">
+                  <Link href={""}>How It Works</Link>
+                </Typography>
+                <Typography variant="button">
+                  <Link href={""}>FAQ</Link>
+                </Typography>
+                <Typography variant="button">
+                  <Link href={""}>Privacy Policy</Link>
+                </Typography>
+              </Stack>
+            </Stack>
           </Stack>
         </Container>
       </footer>

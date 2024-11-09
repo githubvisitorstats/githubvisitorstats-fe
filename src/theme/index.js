@@ -233,6 +233,20 @@ const theme = createTheme({
       textTransform: "none",
       lineHeight: "20px",
     },
+    button: {
+      fontSize: "13px",
+      fontWeight: 300,
+      lineHeight: "normal",
+      textTransform: "none",
+      "& a": {
+        textDecoration: "none",
+        color: palette.grey.light,
+        transition: "0.3s color ease",
+      },
+      "& a:hover": {
+        color: palette.white.main,
+      },
+    },
   },
 });
 
