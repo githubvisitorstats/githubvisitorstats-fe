@@ -1,3 +1,4 @@
 import Header from "./header";
+import SplashContent from "./splash-content";
 
-export { Header };
+export { Header, SplashContent };
