@@ -181,6 +181,7 @@ export default function Home() {
                     src={"assets/img/logo-white.svg"}
                     width={40}
                     height={40}
+                    alt="Github Visitor Stats Logo"
                   />
                 </Link>
                 <Typography variant="overline" color={theme.palette.white.main}>
