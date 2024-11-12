@@ -153,8 +153,20 @@ const theme = createTheme({
         },
         maxWidthLg: {
           maxWidth: "1400px",
+          "@media (min-width: 576px)": {
+            maxWidth: "540px", // small
+          },
+          "@media (min-width: 768px)": {
+            maxWidth: "720px", // medium
+          },
+          "@media (min-width: 992px)": {
+            maxWidth: "960px", // large
+          },
           "@media (min-width: 1200px)": {
-            maxWidth: "1400px",
+            maxWidth: "1140px", // x-large
+          },
+          "@media (min-width: 1400px)": {
+            maxWidth: "1320px", // xx-large
           },
         },
       },

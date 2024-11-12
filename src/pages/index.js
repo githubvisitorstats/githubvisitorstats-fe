@@ -123,7 +123,29 @@ export default function Home() {
       </Container>
       <Stack bgcolor={theme.palette.grey.dark}>
         <Container>
-          <Stack padding={"150px 0px"} maxWidth={"700px"}>
+          <Stack
+            padding={"150px 0px"}
+            sx={{
+              maxWidth: "700px", // Varsayılan olarak %100 genişlik
+              "@media (min-width: 576px)": {
+                maxWidth: "100%", // small
+              },
+              "@media (min-width: 768px)": {
+                maxWidth: "100%", // medium
+              },
+              "@media (min-width: 992px)": {
+                maxWidth: "400px", // large
+              },
+              "@media (min-width: 1200px)": {
+                maxWidth: "600px", // x-large
+              },
+              "@media (min-width: 1400px)": {
+                maxWidth: "700px", // xx-large
+              },
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
             <Typography variant="h5" color={theme.palette.white.main}>
               Got Questions? Join the Discussion!
             </Typography>
@@ -146,19 +168,37 @@ export default function Home() {
               GitHub Discussions
             </Button>
           </Stack>
-          <Image
-            style={{
+          <Stack
+            sx={{
               position: "absolute",
               width: "auto",
               height: "100%",
               top: 0,
               right: 0,
+              "@media (min-width: 768px)": {
+                maxWidth: "100%", // medium
+              },
             }}
-            src={"assets/img/discussion-picture.png"}
-            width={730}
-            height={500}
-            alt="Discussion Picture"
-          />
+          >
+            <Stack
+              sx={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                width: "100%",
+                height: "100%",
+                backgroundColor: theme.palette.grey.dark,
+                opacity: 0.8,
+              }}
+            ></Stack>
+            <Image
+              style={{ width: "auto", height: "100%" }}
+              src={"assets/img/discussion-picture.png"}
+              width={730}
+              height={500}
+              alt="Discussion Picture"
+            />
+          </Stack>
         </Container>
       </Stack>
       <footer
