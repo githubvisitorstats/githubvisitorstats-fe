@@ -1,11 +1,28 @@
 import theme from "@/theme";
+import { generateRequest } from "@/utils/apiClient";
 
 import { Stack, Typography } from "@mui/material";
 import { Button, IconButton, Input } from "@/components/atoms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
+import { useState } from "react";
 
 const SplashContent = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  const onGetCodeButtonClick = () => {
+    const fetchData = async () => {
+      try {
+        const result = await generateRequest("yasgo");
+        setData(result);
+      } catch (err) {
+        setError("Veri alınamadı");
+      }
+    };
+    fetchData();
+  };
+
   return (
     <Stack
       flexDirection={"column"}
@@ -39,7 +56,11 @@ const SplashContent = () => {
           style={{ width: "250px" }}
           className="ButtonAction"
         />
-        <Button variant="contained" className="ButtonAction">
+        <Button
+          variant="contained"
+          className="ButtonAction"
+          onClick={onGetCodeButtonClick}
+        >
           Get Code
         </Button>
       </Stack>
@@ -49,6 +70,11 @@ const SplashContent = () => {
             variant="filled"
             value="![Profile Visits](https://img.shields.io/endpoint?url=https://yasinkalkan.com/github-analytics/track.php?user=yasgo)"
             style={{ width: "100%" }}
+            slotProps={{
+              input: {
+                readOnly: true,
+              },
+            }}
             className="ButtonAction"
           />
           <IconButton className="ButtonAction">
