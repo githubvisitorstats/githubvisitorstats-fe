@@ -1,24 +1,18 @@
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import theme from "@/theme";
 
 import { Container, Stack, Typography } from "@mui/material";
-import { Header, SplashContent } from "@/components/organisms";
-import {
-  Button,
-  IconButton,
-  Input,
-  SplashBackground,
-} from "@/components/atoms";
-import theme from "@/theme";
+import { FeatureContent, Header, SplashContent } from "@/components/organisms";
+import { Button, SplashBackground } from "@/components/atoms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { FeatureBox, TitleSection } from "@/components/molecules";
 import {
   faCoins,
   faGear,
   faUserSlash,
 } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
-import Link from "next/link";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
@@ -43,34 +37,7 @@ export default function Home() {
         </Container>
       </SplashBackground>
       <Container>
-        <Stack
-          flexDirection={"row"}
-          gap={"40px"}
-          marginTop={"-100px"}
-          marginBottom={"300px"}
-        >
-          <FeatureBox
-            icon={faCoins}
-            title={"Free to Use"}
-            detail={
-              "You don’t need to pay anything to use GitHub Visitor Stats! All features are completely free with unlimited access. Monitoring your profile is now easy and cost-free!"
-            }
-          />
-          <FeatureBox
-            icon={faUserSlash}
-            title={"No Registration Required"}
-            detail={
-              "You don’t need to create an account to use GitHub Visitor Stats! Start using it right away without the hassle of signing up."
-            }
-          />
-          <FeatureBox
-            icon={faGear}
-            title={"Simple Integration"}
-            detail={
-              "Easily add a dynamic visitor badge to your GitHub profile with just a few lines of code. Start tracking visitors in seconds!"
-            }
-          />
-        </Stack>
+        <FeatureContent />
         <TitleSection
           category={"GITHUB VISITOR STATS"}
           title={"The Easy Way to Track Your Profile"}
