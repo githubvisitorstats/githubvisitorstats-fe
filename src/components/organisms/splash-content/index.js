@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+
 import theme from "@/theme";
 import { generateRequest } from "@/utils/apiClient";
 
@@ -6,22 +8,15 @@ import { Button, IconButton, Input } from "@/components/atoms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
+import { Formik } from "formik";
+
+const validationSchema = Yup.object().shape({
+  githubUsername: Yup.string().required("This field is required."),
+});
 
 const SplashContent = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-
-  const onGetCodeButtonClick = () => {
-    const fetchData = async () => {
-      try {
-        const result = await generateRequest("yasgo");
-        setData(result);
-      } catch (err) {
-        setError("Veri alınamadı");
-      }
-    };
-    fetchData();
-  };
 
   return (
     <Stack
@@ -44,27 +39,69 @@ const SplashContent = () => {
         Monitor your visitor statistics in real-time with a simple code added to
         your profile.
       </Typography>
-      <Stack
-        flexDirection={"row"}
-        justifyContent={"center"}
-        marginTop={"100px"}
-        marginBottom={"30px"}
+      <Formik
+        initialValues={{ githubUsername: "" }}
+        validationSchema={validationSchema}
+        onSubmit={(values) => {
+          const fetchData = async () => {
+            try {
+              const result = await generateRequest(values.githubUsername);
+              setData(result);
+            } catch (err) {
+              setError("Veri alınamadı");
+            }
+          };
+
+          fetchData();
+        }}
       >
-        <Input
-          variant="standard"
-          placeholder="Github Username"
-          style={{ width: "250px" }}
-          className="ButtonAction"
-        />
-        <Button
-          variant="contained"
-          className="ButtonAction"
-          onClick={onGetCodeButtonClick}
-        >
-          Get Code
-        </Button>
-      </Stack>
-      <Stack width={"70%"} margin={"auto"}>
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
+          <Stack
+            flexDirection={"row"}
+            justifyContent={"center"}
+            marginTop={"100px"}
+            marginBottom={"30px"}
+          >
+            <Input
+              variant="standard"
+              placeholder="Github Username"
+              style={{ width: "250px" }}
+              className="ButtonAction"
+              name="githubUsername"
+              value={values.githubUsername}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.githubUsername && touched.githubUsername}
+              helperText={
+                touched.githubUsername && errors.githubUsername
+                  ? errors.githubUsername
+                  : null
+              }
+            />
+            <Button
+              variant="contained"
+              className="ButtonAction"
+              onClick={handleSubmit}
+            >
+              Get Code
+            </Button>
+          </Stack>
+        )}
+      </Formik>
+
+      <Stack
+        width={"70%"}
+        margin={"auto"}
+        sx={{ pointerEvents: "none", opacity: 0 }}
+      >
         <Stack flexDirection={"row"} justifyContent={"center"}>
           <Input
             variant="filled"

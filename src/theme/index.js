@@ -25,6 +25,21 @@ const palette = {
 
 const theme = createTheme({
   components: {
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          position: "relative",
+        },
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          position: "absolute",
+          top: "100%",
+        },
+      },
+    },
     MuiIconButton: {
       styleOverrides: {
         root: {
