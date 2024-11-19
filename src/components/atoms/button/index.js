@@ -1,5 +1,5 @@
 import React from "react";
-import { Button as MUIButton } from "@mui/material";
+import { Button as MUIButton, CircularProgress, Stack } from "@mui/material";
 import PropTypes from "prop-types";
 
 const Button = ({
@@ -8,23 +8,40 @@ const Button = ({
   color = "primary",
   size = "medium",
   onClick,
+  loading = false,
+  disabled = false,
   ...props
 }) => {
   return (
     <MUIButton
+      sx={{ pointerEvents: loading ? "none" : "auto" }}
       variant={variant}
       color={color}
       size={size}
       onClick={onClick}
+      disabled={disabled}
       {...props}
     >
-      {children}
+      <Stack
+        sx={{ opacity: loading ? 0 : 1 }}
+        flexDirection={"row"}
+        gap={"15px"}
+      >
+        {children}
+      </Stack>
+      {loading && (
+        <CircularProgress
+          size={20}
+          color="inherit"
+          sx={{ position: "absolute" }}
+        />
+      )}
     </MUIButton>
   );
 };
 
 Button.propTypes = {
-  children: PropTypes.node.isRequired, // Butonun içinde gösterilecek içerik
+  children: PropTypes.node.isRequired,
   variant: PropTypes.oneOf(["text", "outlined", "contained"]),
   color: PropTypes.oneOf([
     "default",
@@ -38,6 +55,8 @@ Button.propTypes = {
   ]),
   size: PropTypes.oneOf(["small", "medium", "large"]),
   onClick: PropTypes.func,
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default Button;

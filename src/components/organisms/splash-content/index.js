@@ -9,14 +9,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import { Formik } from "formik";
+import { Tooltip } from "@/components/molecules";
 
 const validationSchema = Yup.object().shape({
   githubUsername: Yup.string().required("This field is required."),
 });
 
 const SplashContent = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+  const [copyTextMessage, setCopyTextMessage] = useState("Copy Text");
+
+  const onCopyClipboardButtonClick = () => {
+    const text = `![Profile Visits](${data})`;
+
+    navigator.clipboard.writeText(text).then(() => {
+      setCopyTextMessage("Text Copied");
+
+      const copyTextTimeOut = setTimeout(() => {
+        setCopyTextMessage("Copy Text");
+        clearTimeout(copyTextTimeOut);
+      }, 2000);
+    });
+  };
 
   return (
     <Stack
@@ -43,16 +58,13 @@ const SplashContent = () => {
         initialValues={{ githubUsername: "" }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          const fetchData = async () => {
-            try {
-              const result = await generateRequest(values.githubUsername);
-              setData(result);
-            } catch (err) {
-              setError("Veri alınamadı");
-            }
-          };
+          setData(null);
+          setIsLoading(true);
 
-          fetchData();
+          generateRequest(values.githubUsername).then((res) => {
+            setData(res.trackingUrl);
+            setIsLoading(false);
+          });
         }}
       >
         {({
@@ -87,6 +99,7 @@ const SplashContent = () => {
               }
             />
             <Button
+              loading={isLoading}
               variant="contained"
               className="ButtonAction"
               onClick={handleSubmit}
@@ -96,16 +109,19 @@ const SplashContent = () => {
           </Stack>
         )}
       </Formik>
-
       <Stack
         width={"70%"}
         margin={"auto"}
-        sx={{ pointerEvents: "none", opacity: 0 }}
+        sx={{ pointerEvents: data ? "auto" : "none", opacity: data ? 1 : 0 }}
       >
-        <Stack flexDirection={"row"} justifyContent={"center"}>
+        <Stack
+          flexDirection={"row"}
+          justifyContent={"center"}
+          position={"relative"}
+        >
           <Input
             variant="filled"
-            value="![Profile Visits](https://img.shields.io/endpoint?url=https://yasinkalkan.com/github-analytics/track.php?user=yasgo)"
+            value={`![Profile Visits](${data})`}
             style={{ width: "100%" }}
             slotProps={{
               input: {
@@ -114,13 +130,18 @@ const SplashContent = () => {
             }}
             className="ButtonAction"
           />
-          <IconButton className="ButtonAction">
-            <FontAwesomeIcon
-              icon={faCopy}
-              fontSize={"14px"}
-              color={theme.palette.white.main}
-            />
-          </IconButton>
+          <Tooltip title={copyTextMessage} placement="top">
+            <IconButton
+              className="ButtonAction"
+              onClick={onCopyClipboardButtonClick}
+            >
+              <FontAwesomeIcon
+                icon={faCopy}
+                fontSize={"14px"}
+                color={theme.palette.white.main}
+              />
+            </IconButton>
+          </Tooltip>
         </Stack>
         <Typography
           variant="overline"
