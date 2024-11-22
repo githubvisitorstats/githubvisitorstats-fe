@@ -59,7 +59,7 @@ const Footer = () => {
             >
               © 2024 Yasin B. Kalkan
             </Typography>
-            <Stack flexDirection={"row"} gap={"30px"}>
+            {/* <Stack flexDirection={"row"} gap={"30px"}>
               <Typography variant="button">
                 <Link href={""}>How It Works</Link>
               </Typography>
@@ -69,7 +69,7 @@ const Footer = () => {
               <Typography variant="button">
                 <Link href={""}>Privacy Policy</Link>
               </Typography>
-            </Stack>
+            </Stack> */}
           </Stack>
         </Stack>
       </Container>

@@ -23,11 +23,11 @@ const Header = () => {
         height={50}
         alt="Github Visitor Stats Logo"
       />
-      <Stack flexDirection={"row"} gap={"50px"}>
+      {/* <Stack flexDirection={"row"} gap={"50px"}>
         <NavigationItem href="/" title="How It Works" />
         <NavigationItem href="/" title="FAQ" />
         <NavigationItem href="/" title="Privacy Policy" />
-      </Stack>
+      </Stack> */}
     </AppBar>
   );
 };
