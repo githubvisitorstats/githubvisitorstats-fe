@@ -46,7 +46,12 @@ const DiscussionContent = () => {
             the Discussions area on GitHub. Collaborate with our community to
             solve issues and learn more!
           </Typography>
-          <Button variant="contained" style={{ gap: "15px" }}>
+          <Button
+            variant="contained"
+            style={{ gap: "15px" }}
+            href={"https://github.com/orgs/githubvisitorstats/discussions"}
+            target="_blank"
+          >
             <FontAwesomeIcon
               icon={faGithub}
               fontSize={"20px"}
