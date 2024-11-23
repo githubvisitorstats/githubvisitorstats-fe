@@ -1,9 +1,16 @@
 import Head from "next/head";
-import theme from "@/theme";
 
-import { ThemeProvider } from "@mui/material";
-import { UnderConstruction } from "@/components/templates";
-import Script from "next/script";
+import { Container } from "@mui/material";
+import {
+  AboutContent,
+  DiscussionContent,
+  FeatureContent,
+  Footer,
+  Header,
+  SplashContent,
+} from "@/components/organisms";
+import { SplashBackground } from "@/components/atoms";
+import { TitleSection } from "@/components/molecules";
 
 export default function Home() {
   return (
@@ -19,7 +26,26 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <UnderConstruction />
+      {/* <UnderConstruction /> */}
+      <SplashBackground>
+        <Container>
+          <Header />
+          <SplashContent />
+        </Container>
+      </SplashBackground>
+      <Container>
+        <FeatureContent />
+        <TitleSection
+          category={"GITHUB VISITOR STATS"}
+          title={"The Easy Way to Track Your Profile"}
+          detail={
+            "GitHub Visitor Stats is a simple web application that allows you to track who has visited your GitHub profile."
+          }
+        />
+        <AboutContent />
+      </Container>
+      <DiscussionContent />
+      <Footer />
     </>
   );
 }

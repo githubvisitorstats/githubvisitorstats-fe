@@ -1,28 +1,193 @@
 import { createTheme } from "@mui/material/styles";
 
+const palette = {
+  purple: {
+    dark: "#000546",
+    main: "#1d1b84",
+    light: "#4945ff",
+  },
+  blue: {
+    dark: "#344b80",
+    light: "#4a95ff",
+  },
+  grey: {
+    dark: "#0d1116",
+    main: "#3f444c",
+    light: "#c0c0cf",
+  },
+  black: {
+    main: "#000",
+  },
+  white: {
+    main: "#fff",
+  },
+};
+
 const theme = createTheme({
-  palette: {
-    purple: {
-      dark: "#000546",
-      main: "#1d1b84",
-      light: "#4945ff",
+  components: {
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          position: "relative",
+        },
+      },
     },
-    blue: {
-      dark: "#344b80",
-      light: "#4a95ff",
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          position: "absolute",
+          top: "100%",
+        },
+      },
     },
-    grey: {
-      dark: "#0d1116",
-      main: "#3f444c",
-      light: "#c0c0cf",
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          width: "55px",
+          backgroundColor: palette.purple.dark,
+          borderRadius: "6px",
+          "&.ButtonAction": {
+            borderTopLeftRadius: "0px",
+            borderBottomLeftRadius: "0px",
+          },
+          ":hover": {
+            backgroundColor: palette.purple.dark,
+          },
+        },
+      },
     },
-    black: {
-      main: "#000",
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          variants: [
+            {
+              props: { variant: "contained" },
+              style: {
+                backgroundColor: palette.purple.light,
+                fontSize: "15px",
+                textTransform: "none",
+                fontWeight: 400,
+                color: palette.white.main,
+                padding: "15px 40px",
+                width: "fit-content",
+                borderRadius: "6px",
+                maxHeight: "55px",
+                transitionProperty: "filter",
+                transitionDuration: "0.3s",
+                ":hover": {
+                  filter: "brightness(1.1)",
+                },
+              },
+            },
+          ],
+          "& .MuiTouchRipple-root": {
+            display: "none",
+          },
+          "&.ButtonAction": {
+            borderTopLeftRadius: "0px",
+            borderBottomLeftRadius: "0px",
+          },
+          "&.Mui-disabled": {
+            backgroundColor: palette.grey.light,
+          },
+        },
+      },
     },
-    white: {
-      main: "#fff",
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          "&:after": {
+            display: "none",
+          },
+          "&:before": {
+            display: "none",
+          },
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          variants: [
+            {
+              props: {
+                variant: "standard",
+              },
+              style: {
+                "& input": {
+                  backgroundColor: palette.white.main,
+                  borderRadius: "6px",
+                  border: "0px",
+                  fontSize: "15px",
+                  padding: "15px 30px",
+                  color: palette.grey.main,
+                  boxSizing: "border-box",
+                  height: "55px",
+                },
+                "& input::placeholder": {
+                  color: palette.grey.light,
+                  opacity: 1,
+                },
+              },
+            },
+            {
+              props: {
+                variant: "filled",
+              },
+              style: {
+                "& input": {
+                  backgroundColor: palette.purple.dark,
+                  borderRadius: "6px",
+                  border: "0px",
+                  fontSize: "15px",
+                  padding: "15px 30px",
+                  color: palette.white.main,
+                  boxSizing: "border-box",
+                  height: "55px",
+                },
+                "& input::placeholder": {
+                  color: palette.purple.light,
+                },
+              },
+            },
+          ],
+          "&.ButtonAction input": {
+            borderTopRightRadius: "0px",
+            borderBottomRightRadius: "0px",
+          },
+          "& fieldset": {
+            display: "none",
+          },
+        },
+      },
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          position: "relative",
+        },
+        maxWidthLg: {
+          maxWidth: "1400px",
+          "@media (min-width: 576px)": {
+            maxWidth: "540px", // small
+          },
+          "@media (min-width: 768px)": {
+            maxWidth: "720px", // medium
+          },
+          "@media (min-width: 992px)": {
+            maxWidth: "960px", // large
+          },
+          "@media (min-width: 1200px)": {
+            maxWidth: "1140px", // x-large
+          },
+          "@media (min-width: 1400px)": {
+            maxWidth: "1320px", // xx-large
+          },
+        },
+      },
     },
   },
+  palette: palette,
   typography: {
     fontFamily: '"Poppins", sans-serif',
     fontWeightRegular: 400,
@@ -75,8 +240,38 @@ const theme = createTheme({
     },
     body1: {
       fontSize: "17px",
+      "& a": {
+        color: palette.blue.light,
+        textDecoration: "none",
+      },
       "@media (max-width:600px)": {
         fontSize: "17px",
+      },
+    },
+    body2: {
+      fontSize: "15px",
+      fontWeight: 400,
+      "@media (max-width:600px)": {
+        fontSize: "13px",
+      },
+    },
+    overline: {
+      fontSize: "11px",
+      textTransform: "none",
+      lineHeight: "20px",
+    },
+    button: {
+      fontSize: "13px",
+      fontWeight: 300,
+      lineHeight: "normal",
+      textTransform: "none",
+      "& a": {
+        textDecoration: "none",
+        color: palette.grey.light,
+        transition: "0.3s color ease",
+      },
+      "& a:hover": {
+        color: palette.white.main,
       },
     },
   },
