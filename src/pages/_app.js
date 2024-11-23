@@ -1,5 +1,10 @@
 import "../styles/style.css";
 
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+
+config.autoAddCss = false;
+
 import theme from "@/theme";
 
 import { ThemeProvider } from "@emotion/react";
