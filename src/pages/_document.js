@@ -17,7 +17,7 @@ export default function Document() {
         `}
         </Script>
       </Head>
-      <body style={{ display: "none" }}>
+      <body>
         <Main />
         <NextScript />
       </body>

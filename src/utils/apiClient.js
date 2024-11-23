@@ -17,6 +17,6 @@ export const generateRequest = async (githubUsername) => {
     const response = await apiClient.post("generate/", dataPayload);
     return response.data;
   } catch (error) {
-    throw error;
+    throw error.response.data;
   }
 };

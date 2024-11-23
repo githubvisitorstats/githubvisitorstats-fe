@@ -19,6 +19,7 @@ const SplashContent = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [copyTextMessage, setCopyTextMessage] = useState("Copy Text");
+  const [serviceError, setServiceError] = useState(null);
 
   const onCopyClipboardButtonClick = () => {
     const text = `![Profile Visits](${data})`;
@@ -61,10 +62,22 @@ const SplashContent = () => {
           setData(null);
           setIsLoading(true);
 
-          generateRequest(values.githubUsername).then((res) => {
-            setData(res.trackingUrl);
-            setIsLoading(false);
-          });
+          generateRequest(values.githubUsername)
+            .then((res) => {
+              setData(res.trackingUrl);
+              setIsLoading(false);
+            })
+            .catch((err) => {
+              if (err.message) {
+                setServiceError(err.message);
+
+                const errorTimeOut = setTimeout(() => {
+                  setIsLoading(false);
+                  setServiceError(null);
+                  clearTimeout(errorTimeOut);
+                }, 3000);
+              }
+            });
         }}
       >
         {({
@@ -109,6 +122,19 @@ const SplashContent = () => {
           </Stack>
         )}
       </Formik>
+      <Stack
+        alignItems={"flex-start"}
+        width={"400px"}
+        margin={"auto"}
+        sx={{
+          pointerEvents: serviceError ? "auto" : "none",
+          opacity: serviceError ? 1 : 0,
+        }}
+      >
+        <Typography variant="overline" color="error">
+          * {serviceError}
+        </Typography>
+      </Stack>
       <Stack
         width={"70%"}
         margin={"auto"}
